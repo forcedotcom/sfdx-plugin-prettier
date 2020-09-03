@@ -1,5 +1,7 @@
 # Salesforce CLI Prettier Plugin
 
+**THIS IS JUST A SAMPLE PLUGIN, IT IS NOT OFFICIALLY SUPPORTED.**
+
 Adds a hook that uses prettier to format code pulled or retrieved from an org.
 
 [![Version](https://img.shields.io/npm/v/sfdx-plugin-prettier.svg)](https://npmjs.org/package/sfdx-plugin-prettier)
