@@ -46,7 +46,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/forcedotcom/plugin-prettier",
+  "homepage": "https://github.com/forcedotcom/sfdx-plugin-prettier",
   "keywords": [
     "sfdx-plugin"
   ],
