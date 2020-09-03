@@ -52,11 +52,3 @@ workflows:
   "plugin-prettier":
     jobs:
       - node-latest
-      - node-8
-      - node-10
-      - cache:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
