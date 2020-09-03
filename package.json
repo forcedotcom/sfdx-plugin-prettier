@@ -1,9 +1,9 @@
 {
-  "name": "plugin-prettier",
+  "name": "sfdx-plugin-prettier",
   "description": "Adds a hook that uses prettier to format code pulled or retrieved from an org.",
   "version": "1.0.0",
   "author": "Nathan Totten",
-  "bugs": "https://github.com/forcedotcom/plugin-prettier/issues",
+  "bugs": "https://github.com/forcedotcom/sfdx-plugin-prettier/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -23,6 +23,7 @@
     "@types/chai": "^4",
     "@types/mocha": "^5",
     "@types/node": "^10",
+    "@types/prettier": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "chai": "^4",
@@ -65,7 +66,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "forcedotcom/plugin-prettier",
+  "repository": "forcedotcom/sfdx-plugin-prettier",
   "scripts": {
     "lint": "tslint --project . --config tslint.json --format stylish",
     "postpack": "rm -f oclif.manifest.json",
