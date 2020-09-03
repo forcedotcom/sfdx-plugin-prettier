@@ -1,0 +1,71 @@
+{
+  "name": "plugin-prettier",
+  "description": "Adds a hook that uses prettier to format code pulled or retrieved from an org.",
+  "version": "1.0.0",
+  "author": "Nathan Totten",
+  "bugs": "https://github.com/forcedotcom/plugin-prettier/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/errors": "^1",
+    "@salesforce/command": "^2",
+    "@salesforce/core": "^2",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/plugin-help": "^2",
+    "@oclif/test": "^1",
+    "@salesforce/dev-config": "1.4.1",
+    "@types/chai": "^4",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "chai": "^4",
+    "eslint": "^7.8.1",
+    "eslint-config-salesforce-typescript": "^0.1.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^30.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "globby": "^8",
+    "mocha": "^5",
+    "nyc": "^14",
+    "ts-node": "^8"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "/lib",
+    "/messages",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/forcedotcom/plugin-prettier",
+  "keywords": [
+    "sfdx-plugin"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "sfdx",
+    "topics": {
+      "hello": {
+        "description": "Commands to say hello."
+      }
+    },
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "forcedotcom/plugin-prettier",
+  "scripts": {
+    "lint": "tslint --project . --config tslint.json --format stylish",
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
