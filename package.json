@@ -1,7 +1,7 @@
 {
   "name": "sfdx-plugin-prettier",
   "description": "Adds a hook that uses prettier to format code pulled or retrieved from an org.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "Nathan Totten",
   "bugs": "https://github.com/forcedotcom/sfdx-plugin-prettier/issues",
   "dependencies": {
