@@ -6,7 +6,6 @@ Adds a hook that uses prettier to format code pulled or retrieved from an org.
 
 [![Version](https://img.shields.io/npm/v/sfdx-plugin-prettier.svg)](https://npmjs.org/package/sfdx-plugin-prettier)
 [![CircleCI](https://circleci.com/gh/forcedotcom/sfdx-plugin-prettier/tree/main.svg?style=shield)](https://circleci.com/gh/forcedotcom/sfdx-plugin-prettier/tree/main)
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/forcedotcom/sfdx-plugin-prettier?branch=main&svg=true)](https://ci.appveyor.com/project/herokusfdx-/plugin-prettier/branch/main)
 [![Codecov](https://codecov.io/gh/forcedotcom/sfdx-plugin-prettier/branch/main/graph/badge.svg)](https://codecov.io/gh/forcedotcom/sfdx-plugin-prettier)
 [![Greenkeeper](https://badges.greenkeeper.io/forcedotcom/sfdx-plugin-prettier.svg)](https://greenkeeper.io/)
 [![Known Vulnerabilities](https://snyk.io/test/github/forcedotcom/sfdx-plugin-prettier/badge.svg)](https://snyk.io/test/github/forcedotcom/sfdx-plugin-prettier)
