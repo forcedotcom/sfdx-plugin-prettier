@@ -1,10 +1,6 @@
 import { Command, Hook } from "@oclif/config";
-import * as fs from "fs";
-import { promisify } from "util";
+import { promises as fs } from "fs";
 import * as prettier from "prettier";
-
-const writeFile = promisify(fs.writeFile);
-const readFile = promisify(fs.readFile);
 
 type HookFunction = (this: Hook.Context, options: HookOptions) => void;
 
@@ -31,18 +27,23 @@ export const hook: HookFunction = async function (options) {
   if (options.result) {
     for (const mdapiElementName of Object.keys(options.result)) {
       const mdapiElement = options.result![mdapiElementName]!;
-      mdapiElement.workspaceElements.forEach(async ({ sourcePath }) => {
-        const fileInfo = await prettier.getFileInfo(sourcePath);
+      const promises = mdapiElement.workspaceElements.map(
+        async ({ sourcePath }) => {
+          const fileInfo = await prettier.getFileInfo(sourcePath);
 
-        if (!fileInfo.ignored && fileInfo.inferredParser !== null) {
-          const options = (await prettier.resolveConfig(sourcePath)) ?? {};
-          options.filepath = sourcePath;
+          if (!fileInfo.ignored && fileInfo.inferredParser !== null) {
+            const options = (await prettier.resolveConfig(sourcePath)) ?? {};
+            options.filepath = sourcePath;
 
-          let source = await readFile(sourcePath, "utf-8");
-          source = prettier.format(source, options);
-          await writeFile(sourcePath, source, "utf-8");
+            let source = await fs.readFile(sourcePath, {
+              encoding: "utf-8",
+            });
+            source = prettier.format(source, options);
+            await fs.writeFile(sourcePath, source, "utf-8");
+          }
         }
-      });
+      );
+      await Promise.all(promises);
     }
   }
 };
