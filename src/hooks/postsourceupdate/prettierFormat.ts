@@ -1,6 +1,10 @@
 import { Command, Hook } from "@oclif/config";
-import { promises as fs } from "fs";
+import * as fs from "fs";
 import * as prettier from "prettier";
+import { promisify } from "util";
+
+const writeFile = promisify(fs.writeFile);
+const readFile = promisify(fs.readFile);
 
 type HookFunction = (this: Hook.Context, options: HookOptions) => void;
 
@@ -35,11 +39,9 @@ export const hook: HookFunction = async function (options) {
             const options = (await prettier.resolveConfig(sourcePath)) ?? {};
             options.filepath = sourcePath;
 
-            let source = await fs.readFile(sourcePath, {
-              encoding: "utf-8",
-            });
+            let source = await readFile(sourcePath, "utf-8");
             source = prettier.format(source, options);
-            await fs.writeFile(sourcePath, source, "utf-8");
+            await writeFile(sourcePath, source, "utf-8");
           }
         }
       );
