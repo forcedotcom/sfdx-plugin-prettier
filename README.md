@@ -13,7 +13,7 @@ Adds a hook that uses prettier to format code pulled or retrieved from an org.
 Install by running:
 
 ```sh-session
-$ sfdx plugin:install sfdx-plugin-prettier
+$ sfdx plugins:install sfdx-plugin-prettier
 ```
 
 The plugin will run and automatically format your code with [Prettier](https://prettier.io) every time you run `source:fource:pull` or `source:force:retrieve`.
